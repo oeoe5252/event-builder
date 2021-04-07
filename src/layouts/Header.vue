@@ -1,7 +1,7 @@
 <template>
-  <el-footer>
-    Footer
-  </el-footer>
+  <header>
+    Header
+  </header>
 </template>
 
 <script lang="ts">
@@ -9,10 +9,13 @@ import Vue from 'vue';
 import Component from "vue-class-component";
 
 @Component
-export default class LayoutFooter extends Vue {
+export default class LayoutHeader extends Vue {
 
 }
 </script>
 
 <style>
+.el-header {
+
+}
 </style>

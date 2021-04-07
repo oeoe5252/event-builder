@@ -4,6 +4,7 @@ import {Module, VuexModule, Mutation, getModule, Action} from "vuex-module-decor
 import store from '@/store';
 import {axiosDefault} from "@/store/BaseAxios";
 import {JWT} from "@/libs/JWT";
+import router from '@/router/';
 
 export interface IAuth {
     User?: IUSerInfo
@@ -29,15 +30,14 @@ class Auth extends VuexModule implements IAuth {
     @Action({
         rawError: true
     })
-    login({email, password, remember}: { email: String, password: String, remember?: Boolean }) {
+    login({email, password, remember}: { email: String, password: String, remember?: Boolean }): Promise<any> | void {
         try {
-            axiosDefault().post('/v1/signin', {
+            return axiosDefault().post('/v1/signin', {
                 email, password, remember
             }).then(({data}) => {
                 JWT.setToken(data.data);
-            }).catch(error => {
-                console.error('[Module>Auth] 아이디, 또는 패스워드를 확인하세요.');
-            })
+                router.push('/');
+            });
         } catch {
             console.error('[Module>Auth] 로그인 모듈에 통신과 무관한 문제가 발생했습니다.')
         }

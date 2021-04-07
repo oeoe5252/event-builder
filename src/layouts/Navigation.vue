@@ -1,7 +1,7 @@
 <template>
-  <el-aside>
+  <div class="">
     navigation
-  </el-aside>
+  </div>
 </template>
 
 <script lang="ts">

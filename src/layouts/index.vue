@@ -1,23 +1,19 @@
 <template>
-  <el-container>
-    <el-header>
-      <layout-header></layout-header>
-    </el-header>
-    <el-container>
+  <div class="container mx-auto">
+    <layout-header></layout-header>
+    <div class="container mx-auto">
       <layout-navigation></layout-navigation>
-      <el-main>
-        <slot></slot>
-      </el-main>
-    </el-container>
-  </el-container>
+      <slot></slot>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import Component from "vue-class-component";
-import LayoutHeader from "@/components/layouts/Header.vue";
-import LayoutFooter from "@/components/layouts/Footer.vue";
-import LayoutNavigation from "@/components/layouts/Navigation.vue";
+import LayoutHeader from "@/layouts/Header.vue";
+import LayoutFooter from "@/layouts/Footer.vue";
+import LayoutNavigation from "@/layouts/Navigation.vue";
 
 @Component({
   components: {
